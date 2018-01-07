@@ -39,7 +39,7 @@ var SequelizeAuto = require('sequelize-mysql-model')
 
 var auto = new SequelizeAuto('database', 'user', 'pass', {
     host: 'localhost',
-    dialect: 'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
+    dialect: 'mysql',
     directory: false, // prevents the program from writing to disk
     port: 'port',
     additional: {
