@@ -3,10 +3,11 @@
 modify from [SequelizeAuto - 0.4.29](https://github.com/sequelize/sequelize-auto)
 Automatically generate models for [SequelizeJS](https://github.com/sequelize/sequelize).
 
-** Programmatic API Only **
-** Mysql Only **
+**Programmatic API Only**
 
-add some feature
+**Mysql Only**
+
+more feature support
 
 1. comment support
 
