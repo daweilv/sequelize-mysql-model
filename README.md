@@ -38,38 +38,43 @@ Example for MySQL/MariaDB
 ```js
 var SequelizeAuto = require('sequelize-mysql-model')
 
-var auto = new SequelizeAuto('database', 'user', 'pass', {
-    host: 'localhost',
+var db = {
+    host: 'host',
+    user: 'user',
+    password: 'password',
+    database: 'database',
+    port: '3306'
+};
+
+var auto = new SequelizeAuto(db.database, db.user, db.password, {
+    host: db.host,
     dialect: 'mysql',
-    directory: false, // prevents the program from writing to disk
-    port: 'port',
+    port: db.port,
+    directory: './models',
     additional: {
         timestamps: false
-      },
-      tables: ['users', 'topics'],
-      camelCase:false,
-      camelCaseForFileName:true,
-      indentation:2,
-      modelNameResolve: function (table_name) {
-        if (table_name.indexOf("t_") !== -1) {
-          return table_name.substring(2)
+    },
+    tables: ['f_user', 'f_article', 'f_article_category'],
+    modelNameResolve: function (table_name) {
+        if (table_name.indexOf("f_") !== -1) {
+            return table_name.substring(2)
         } else {
-          return table_name
+            return table_name
         }
-      },
-      fileNameResolve:function (table_name) {
-        if (table_name.indexOf("t_") !== -1) {
-          return table_name.substring(2)
+    },
+    fileNameResolve: function (table_name) {
+        if (table_name.indexOf("f_") !== -1) {
+            return table_name.substring(2)
         } else {
-          return table_name
+            return table_name
         }
-      }
-    });
+    }
+});
 
-    auto.run(function (err) {
-      if (err) throw err;
+auto.run(function (err) {
+    if (err) throw err;
 
-      console.log(auto.tables); // table list
-      console.log(auto.foreignKeys); // foreign key list
-    });
+    console.log(auto.tables); // table list
+    console.log(auto.foreignKeys); // foreign key list
+});
 ```
