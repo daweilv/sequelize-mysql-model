@@ -12,9 +12,11 @@ Automatically generate models for [SequelizeJS](https://github.com/sequelize/seq
 1. comment support
 
 2. modelNameResolve function support
+
     open this option will disable model camelCase
 
 3. fileNameResolve function support
+
     open this option will disable camelCaseForFileName
 
 
